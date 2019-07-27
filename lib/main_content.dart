@@ -27,7 +27,7 @@ class _MainContentPageState extends State<_MainContentPage>
     Tab(
       icon: Icon(Icons.text_rotation_angleup),
       text: 'second',
-    ),
+    )
   ];
 
   @override
