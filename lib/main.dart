@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'main_content.dart';
+import 'user_info/user_info_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -68,7 +69,7 @@ class _MyHomePageState extends State<_MyHomePage>
           controller: _bottomController,
           children: [
             MainContent(),
-            Text("我的"),
+            UserInfoPage().buildPage(null)
           ],
         ),
         bottomNavigationBar: Material(

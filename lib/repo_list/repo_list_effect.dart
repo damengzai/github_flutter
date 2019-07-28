@@ -1,6 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:github_flutter/http/net_util.dart';
-import 'package:github_flutter/repo_list_item/repo_item_state.dart';
 
 import 'repo_list_action.dart';
 import 'repo_list_state.dart';
@@ -17,33 +16,31 @@ Effect<RepoListState> buildEffect() {
   });
 }
 
-void _init(Action action, Context<RepoListState> ctx) {
-  final List<RepoItemState> initRepoItems = <RepoItemState>[
-    RepoItemState(name: 'name',stargazers_count: 3),
-  ];
-  ctx.dispatch(RepoListActionCreator.initRepoListAction(initRepoItems));
-}
-
-void _build(Action action, Context<RepoListState> ctx) async {
-  println('----build');
+void _init(Action action, Context<RepoListState> ctx) async {
+  println('----init');
   List<dynamic> result = await NetUtil.get(repositories_url);
-  ctx.dispatch(RepoListActionCreator.initRepoListAction(RepoListState.fromJSON(result)));
+  ctx.dispatch(
+      RepoListActionCreator.initRepoListAction(RepoListState.fromJSON(result)));
   println('---');
 }
 
-void _appear(Action action, Context<RepoListState> ctx){
+void _build(Action action, Context<RepoListState> ctx) {
+  println('----build');
+}
+
+void _appear(Action action, Context<RepoListState> ctx) {
   println('----appear');
 }
 
-void _deactivate(Action action, Context<RepoListState> ctx){
+void _deactivate(Action action, Context<RepoListState> ctx) {
   println('----deactivate');
   _init(action, ctx);
 }
 
-void _disappear(Action action, Context<RepoListState> ctx){
+void _disappear(Action action, Context<RepoListState> ctx) {
   println('----disappear');
 }
-void _didUpdateWidget(Action action, Context<RepoListState> ctx){
+
+void _didUpdateWidget(Action action, Context<RepoListState> ctx) {
   println('----didUpdateWidget');
 }
-

@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:fish_redux/fish_redux.dart';
 
 class UserInfoState implements Cloneable<UserInfoState> {
@@ -103,4 +105,18 @@ class UserInfoState implements Cloneable<UserInfoState> {
         'created_at = $created_at '
         'updated_at = $updated_at';
   }
+
+  static UserInfoState fromMap(Map<String, dynamic> args) {
+    return UserInfoState()
+      ..avatar_url = args['avatar_url']
+      ..name = args['name']
+      ..id = args['id']
+      ..location = args['location']
+      ..url = args['url']
+      ..email = args['email'];
+  }
+}
+
+UserInfoState initState(Map<String, dynamic> args) {
+  return UserInfoState();
 }
