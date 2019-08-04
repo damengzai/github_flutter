@@ -15,6 +15,7 @@ Widget buildView(
             child: ListView.builder(
               itemBuilder: adapter.itemBuilder,
               itemCount: adapter.itemCount,
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
             ),
           ),
         ],
