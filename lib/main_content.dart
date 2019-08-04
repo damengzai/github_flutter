@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'repo_list/repo_list_page.dart';
+import 'starred_list/starred_list_page.dart';
 
 //首页上面TabView容器
 class MainContent extends StatelessWidget {
@@ -58,7 +59,7 @@ class _MainContentPageState extends State<_MainContentPage>
         controller: _topController,
         children: [
           RepoListPage().buildPage(null),
-          Text('second'),
+          StarredListPage().buildPage(null),
         ],
       ),
     );
